@@ -1,0 +1,1 @@
+<img src="https://img.freepik.com/vetores-gratis/glitch-error-404-page_23-2148105404.jpg?semt=ais_hybrid&w=740&q=80" alt="404-ft">

@@ -37,7 +37,8 @@ class Route{
             }
         }
 
-        http_response_code(404);
+        // http_response_code(404);
+        view('404');
     }
 
     protected function addRota($metodo, $uri, $acao){
@@ -86,7 +87,21 @@ class Route{
 
         if(is_array($acao)){
             [$classe, $metodo] = $acao;
+            $file = __DIR__ . "/../controllers/$classe.php";
+
+            if (!file_exists($file)) {
+                echo "<script>alert('$file não encontrado')</script>";
+                // throw new Exception("Controller não encontrado");
+            }
+            
+            require_once $file;
             $controller = new $classe;
+
+            if (!is_callable([$controller, $metodo])) {
+                echo "<script>alert('Método $metodo não existe na classe $classe')</script>";
+                // throw new Exception("");
+            }
+            
             return call_user_func_array([$controller, $metodo], $params);
         }
     }

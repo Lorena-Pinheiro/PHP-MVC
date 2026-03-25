@@ -7,3 +7,9 @@ $router->get('/teste', function () {
 $router->get('/', function () {
     return view("teste", ['teste'=>'asdf']);
 });
+
+$router->get('/login', function () {
+    return view("login");
+});
+
+$router->post('/login/{username}/{senha}', [UsuarioController::class,'login']);
