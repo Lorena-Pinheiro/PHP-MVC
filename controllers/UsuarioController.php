@@ -10,7 +10,7 @@ class UsuarioController{
 
     public function login($username, $senha){
         try{
-            $result = $this->usuarioService->login($username, $senha);
+            $result = $this->usuarioService->login($username, password_hash($senha, PASSWORD_DEFAULT));
             // return Ok($result);
             view('profile', ['result'=> $result]);
         }catch (Exception $e){

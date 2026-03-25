@@ -14,7 +14,7 @@ class UsuarioService{
         $resultado = $this->usuarioModel->login($username, $senha);
 
         if(!$resultado){
-            throw new Exception( "Usuário não encontrado.");
+            throw new Exception("Email ou senha inválidos.");
         }
 
         // session?
